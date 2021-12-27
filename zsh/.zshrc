@@ -216,5 +216,9 @@ source ${HOME}/.aliases
 
 #export PS1=$PS1"%F{yellow}$(vacations) days%F{blue} ] "
 
+# stow
+export DOTFILES="${HOME}/.dotfiles"
+export STOW_FOLDERS="zsh,tmux,vim"
+
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$(yarn global bin):$PATH"
