@@ -396,8 +396,9 @@ endfunction
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "left"
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+let NERDTreeShowHidden=1
 
 map <Leader>p <Plug>(easymotion-prefix)
 nmap S <Plug>(easymotion-s2)
