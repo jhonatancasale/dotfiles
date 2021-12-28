@@ -84,6 +84,7 @@ alias blogb="cdblog ; bundle exec jekyll build"
 alias pipinstall="python3.10 -m pip install "
 alias pipupgrade="python3.10 -m pip install --upgrade pip"
 alias so="source"
+alias soz="source ${HOME}/.zshrc"
 alias cdtools="cd ${HOME}/tools"
 
 alias luamake=${HOME}/tools/lua-language-server/3rd/luamake/luamake
