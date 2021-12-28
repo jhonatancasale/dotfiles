@@ -1,0 +1,88 @@
+alias rt="rake test"
+alias gr="grep -Rin"
+alias ggr="ggg ; grep -Rin"
+alias rrr="R --quiet -f"
+alias l1="ls -1"
+alias ll1="clear; ls -1"
+alias lll="clear; ls -l"
+alias rr="bash run.sh"
+alias lls="clear; ls"
+alias pc='pyclean'
+alias t='tree'
+alias lt='clear; tree'
+alias td='tree -d'
+alias ltd='clear; tree -d'
+alias ggg='find . -name "*~" -delete ; pyclean'
+alias ltail="ls -lart | tail"
+alias hidden="ls -a | egrep '^\.'"
+alias lh="ls -l .??*"
+alias lhd="ls -ld .??*"
+alias cdbin="cd ${WORKSPACE}/utils/bin"
+alias cdw="cd ${WORKSPACE}"
+alias cdp="cd ${PROJECTS}"
+alias projects="cd ${PROJECTS}"
+alias create_tmp="mkdir $(date '+%Y%m%d_%H%M%S')"
+alias v=vim
+alias vim=nvim
+alias dopip="pip install black flake8 yapf pylint neovim"
+alias dockerdata="cd ${DOCKERDATA}"
+alias update-jenkins="${HOME}/utils/scripts/update-jenkins-image.zsh"
+alias update-prometheus="docker pull prom/prometheus"
+alias update-grafana="docker pull grafana/grafana"
+alias update-influx="docker pull influxdb"
+alias update-couchbase="docker pull couchbase"
+alias couchbaser="docker container run -d --name couchbase-server -p 8091-8094:8091-8094 -p 11210:11210 couchbase"
+alias grafanar="docker run -d --name grafana -p 3000:3000 grafana/grafana"
+alias virtualenv="virtualenv --python=python3"
+alias cdpython="cd ${WORKSPACE}/programming-languages/python"
+alias cdpy="cd ${WORKSPACE}/programming-languages/python/learning-python"
+alias cdsql="cd ${WORKSPACE}/programming-languages/sql/learning-sql"
+alias freeze="python -m pip freeze > requirements.txt"
+alias whome="cd ${WINDOWS_HOME}"
+alias wdoc="cd ${WINDOWS_HOME}/Documents"
+alias wdown="cd ${WINDOWS_HOME}/Downloads"
+alias wevidences="cd ${WINDOWS_HOME}/Documents/Evidences"
+alias wldown="ls -lart ${WINDOWS_HOME}/Downloads | tail -12 | head"
+alias psu="ps -fu ${USER}"
+alias tools="cd ${WORKSPACE}/tools"
+alias jenkins="cd ${JENKINS}"
+alias jenkinsu="docker-compose --file ${JENKINS}/bin/docker-compose.yml up -d jenkins"
+alias jenkinsd="docker-compose --file ${JENKINS}/bin/docker-compose.yml down"
+alias jenkinsr="docker-compose --file ${JENKINS}/bin/docker-compose.yml start jenkins"
+alias jenkinss="docker-compose --file ${JENKINS}/bin/docker-compose.yml stop jenkins"
+alias jenkinst="docker-compose --file ${JENKINS}/bin/docker-compose.yml logs -f jenkins"
+alias dorflexu="docker-compose --file ${HOME}/dorflex/docker-compose.yml up -d"
+alias dorflexd="docker-compose --file ${HOME}/dorflex/docker-compose.yml down"
+alias dorflexr="docker-compose --file ${HOME}/dorflex/docker-compose.yml start"
+alias dorflexs="docker-compose --file ${HOME}/dorflex/docker-compose.yml stop"
+alias dorflext="docker-compose --file ${HOME}/dorflex/docker-compose.yml logs -f"
+alias influxr="docker-compose --file ${HOME}/dorflex/docker-compose.yml up -d influxdb"
+alias influxs="docker-compose --file ${HOME}/dorflex/docker-compose.yml stop influxdb"
+
+alias igride="influxr; cd ${PROJECTS}/igride-samsara; ./run.sh ; cd -"
+alias igrides="influxr; cd ${PROJECTS}/igride-samsara; ./run.sh ; cd -; influxs"
+alias bat=batcat
+
+alias down-docker="jenkinsd;dorflexd"
+
+# Add an "alert" alias for long running commands.  Use like so:
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias cdwiki="cd ${WIKIHOME}"
+alias cdutils="cd ${MAIN_UTILS}"
+alias cdscripts="cd ${MAIN_SCRIPTS}"
+alias metasolange="cd ${META_SOLANGE}"
+
+alias update="sudo apt-get update -y && sudo apt-get upgrade -y ; omz update; cd ${ZSH}/themes; diff nanotech-jc.zsh-theme nanotech.zsh-theme; cd -"
+alias sv=source_virtualenv_python
+alias cv=create_python_virtualenv
+alias cdcv="cd /mnt/c/Users/casal/Documents/cv"
+
+alias cdblog="cd ${BLOG}"
+alias blogs="cdblog ; bundle exec jekyll serve"
+alias blogb="cdblog ; bundle exec jekyll build"
+alias pipinstall="python3.10 -m pip install "
+alias pipupgrade="python3.10 -m pip install --upgrade pip"
+alias so="source"
+alias cdtools="cd ${HOME}/tools"
+
+alias luamake=${HOME}/tools/lua-language-server/3rd/luamake/luamake
