@@ -12,7 +12,7 @@ function dorflex() {
 }
 
 function vacations() {
-  python3 -c "from datetime import datetime ; print((datetime.strptime('2021-12-31', '%Y-%m-%d').date() - datetime.today().date()).days)"
+  python3.10 -c "from datetime import datetime ; print((datetime.strptime('2021-12-31', '%Y-%m-%d').date() - datetime.today().date()).days)"
 }
 
 function solange() {
@@ -32,7 +32,8 @@ function source_virtualenv_python() {
 }
 
 function create_python_virtualenv() {
-  virtualenv --python=python3 $1
+  python3.10 -m venv $1
+
   source $1/bin/activate
   pip install neovim black flake8 yapf pylint mypy
 }
