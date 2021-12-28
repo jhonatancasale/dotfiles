@@ -1,40 +1,27 @@
-" Type :so % to refresh .vimrc after making changes
-
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
 set nocompatible
 
 set t_Co=256
 
-" You need pip install neovim in any virtualenv for Ultisnips to work
-" Force vim to load python3 before python2
 if has('python3')
 endif
 
-" Leader - ( Spacebar )
 let mapleader = " "
 
-" Vundle here
 filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-"execute pathogen#infect()
-
-" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-"Plugin 'Konfekt/FastFold'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'cesardeazevedo/Fx-ColorScheme'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'ervandew/supertab'
+Plugin 'shaneharper/vim-rtags'
 Plugin 'godlygeek/tabular'
 Plugin 'jalvesaq/Nvim-R'
 Plugin 'scrooloose/nerdtree'
@@ -48,26 +35,35 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'neomake/neomake'
 Plugin 'sunaku/vim-ruby-minitest'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-commentary'
+Plugin 'jremmen/vim-ripgrep'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-perl/vim-perl'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vimwiki/vimwiki'
-Plugin 'tpope/vim-commentary'
 Plugin 'numirias/semshi'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'dense-analysis/ale'
-Plugin 'neoclide/coc.nvim'
-Plugin 'pappasam/coc-jedi'
+Plugin 'mbbill/undotree'
+Plugin 'vim-utils/vim-man'
+" Plugin 'neoclide/coc.nvim'
+" Plugin 'pappasam/coc-jedi'
+Bundle 'Valloric/YouCompleteMe'
 
 call vundle#end()
+
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
 
 let g:ale_linters = {
       \   'python': ['flake8', 'pylint'],
@@ -95,43 +91,24 @@ function! LinterStatus() abort
         \)
 endfunction
 
-nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gd <Plug>(coc-definition)
 
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
 
-nmap <leader>rn <Plug>(coc-rename)
-
-set laststatus=2 " Always display the statusline in all windows
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-set statusline=
-set statusline+=%m
-set statusline+=\ %f
-set statusline+=%=
-set statusline+=\ %{LinterStatus()}
-
-" Plugin 'vim-scripts/indentpython.vim'
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'bitc/bad-whitespace'
-" Plugin 'scrooloose/syntastic'
-" Plugin 'vim-syntastic/syntastic'
-
-" PluginInstall
+" nmap <leader>rn <Plug>(coc-rename)
 
 filetype plugin indent on
 
 set backspace=2   " Backspace deletes like most programs in insert mode
-
-set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set history=9999
 
-let python_highlight_all=1
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -139,45 +116,40 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-set background=dark
-
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-runtime! ftplugin/man.vim
-
-let g:pydiction_location = '$HOME/.vim/bundle/pydiction/complete-dict'
-let g:pydiction_menu_height = 5
-
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
-set showcmd       " Show (partial) command in status line.
-set ignorecase    " Do case insensitive matching
-set smartcase     " Do smart case matching
-set incsearch     " Incremental search
-set tabstop=2     " tamanho das tabulações
-set shiftwidth=2  " quantidade de espaços de uma tabulação
-set shiftround    " [>>|<<] moves it to the next multiple value of shiftwidth
-set expandtab     " convert <TAB> to <space>
+" Main set
+set noerrorbells
+set showcmd                     " Show (partial) command in status line.
+set ignorecase                  " Do case insensitive matching
+set smartcase                   " Do smart case matching
+set smartindent
+set incsearch                   " Incremental search
+set tabstop=4 softtabstop=4     " tamanho das tabulações
+set shiftwidth=4                " quantidade de espaços de uma tabulação
+set shiftround                  " [>>|<<] moves it to the next multiple value of shiftwidth
+set expandtab                   " convert <TAB> to <space>
 "need :retab
-set ai            " auto identação
-set backup        " habilita a criação de arquivos de backup
-set bex=~         " especifica a extensão do backup
-set ttyfast       " melhora o redraw das janelas
-set cul           " abreviação de cursor line ( destaca a linha atual )
-set cuc           " abreviação de cursor column ( destaca a coluna atual )
-set nu            " mostra numeração de linhas
-set numberwidth=5 " quantidades de casas ocupadas pelos numeros
+set ai                          " auto identação
+set backup                      " habilita a criação de arquivos de backup
+set bex=~                       " especifica a extensão do backup
+set ttyfast                     " melhora o redraw das janelas
+set cul                         " abreviação de cursor line ( destaca a linha atual )
+set cuc                         " abreviação de cursor column ( destaca a coluna atual )
+set nu                          " mostra numeração de linhas
+set numberwidth=5               " quantidades de casas ocupadas pelos numeros
 set listchars=tab:»·,trail:·,nbsp:·,eol:¬
 set list
 set ruler
 set encoding=utf-8
 set hlsearch
+set noswapfile
+set undodir=~/.vim/undodir
+set undofile
 
 "Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -199,29 +171,21 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
-"let g:rehash256 = 1
-"
 set autowrite   " Automatically save before commands like :next and :make
 set autoread
+
 " Trigger autoread when changing buffers or coming back to vim in terminal.
 au FocusGained,BufEnter * :silent! !
 
 colorscheme gruvbox
+set background=dark
 let g:airline_theme="molokai"
-
-" Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif
 
 "some usual mapping
 :map <F3> :VimwikiAll2HTML<CR>:e<CR>
 
-
-" General
-":map <Leader>sc :SyntasticCheck<CR>
-
 " Python
+let python_highlight_all=1
 :map <Leader>pp  :!python3 %<CR>
 :map <Leader>lpp :!clear; python3 %<CR>
 :map <Leader>ppt :!pytest<CR>
@@ -229,11 +193,6 @@ endif
 "Flagging Unnecessary Whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-" let g:syntastic_python_flake8_exec = 'python3'
-" let g:syntastic_python_flake8_args = ['-m', 'flake8']
-" let g:syntastic_python_flake8_args = ['-m', 'pylint']
-" let g:syntastic_python_checkers = ['pylint']
 
 "C/Cpp
 :map <F4>        :!make<CR>
@@ -260,16 +219,8 @@ autocmd FileType html :map ;d i<div></div><Esc>^f>a
 :nnoremap <Leader>ff :buffers<CR>:buffer<Space>
 
 set tw=79
-set colorcolumn=80,81,82,83,84,85,86
+execute "set colorcolumn=" . join(range(80,86), ',')
 au BufNewFile,BufRead * setlocal formatoptions+=t
-
-let g:DoxygenToolkit_briefTag_pre="@Synopsis " 
-"let g:DoxygenToolkit_paramTag_pre="@Param :: " 
-"let g:DoxygenToolkit_returnTag="@retval " 
-"let g:DoxygenToolkit_blockHeader="-------------------------------" let
-"g:DoxygenToolkit_blockFooter="-------------------------------" 
-let g:DoxygenToolkit_authorName="Jhonatan Casale" 
-let g:DoxygenToolkit_licenseTag="private license"   "<-- !!! Does not end with \<enter>
 
 let g:tex_flavor = "latex"
 
@@ -290,17 +241,7 @@ set foldlevel=99
 set foldnestmax=2
 let g:SimpylFold_docstring_preview = 1
 
-" FastFold
-"let g:tex_fold_enabled=1
-"let g:vimsyn_folding='af'
-"let g:xml_syntax_folding = 1
-"let g:php_folding = 1
-"let g:perl_fold = 1
-"let g:python_fold = 1
-
-" Enable folding with the spacebar
-
-" P"ython configs
+" Python configs
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -314,16 +255,6 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
-
-"augroup vimrc
-"  au BufReadPre * setlocal foldmethod=indent
-"  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-"augroup END
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
 
 "Toggle relative numbering, and set to absolute on loss of focus or insert mode
 set rnu
@@ -482,6 +413,9 @@ map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
+nnoremap <Leader>u :UndotreeShow<CR>
+nnoremap <Leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <Leader>ps :Rg<SPACE>
 
 "vimwiki syntax highlight configuration
 "nmap <Leader>wf <Plug>VimwikiFollowLink 
@@ -502,6 +436,7 @@ let g:vimwiki_list = [wiki]
 
 " properly Calendar panel size
 nmap <Leader>dc :Calendar<cr>:vertical resize 27<cr>
+
 nmap <silent><Leader>bo :.!${MAIN_SCRIPTS}/diary_wiki_template.sh<cr>
 
 
@@ -516,7 +451,11 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1
 let g:vim_markdown_json_frontmatter = 1
 
-"set completefunc=syntaxcomplete#Complete
+" XXX
+" set completefunc=syntaxcomplete#Complete
+
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>gd  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "python with virtualenv support
 "py << EOF
