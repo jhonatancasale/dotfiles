@@ -139,8 +139,6 @@ set shiftround                  " [>>|<<] moves it to the next multiple value of
 set expandtab                   " convert <TAB> to <space>
 "need :retab
 set ai                          " auto identação
-set backup                      " habilita a criação de arquivos de backup
-set bex=~                       " especifica a extensão do backup
 set ttyfast                     " melhora o redraw das janelas
 set cul                         " abreviação de cursor line ( destaca a linha atual )
 set cuc                         " abreviação de cursor column ( destaca a coluna atual )
