@@ -363,6 +363,7 @@ autocmd BufReadPost *
 autocmd BufRead,BufNewFile Appraisals set filetype=ruby
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.rdoc set filetype=markdown
+autocmd BufNewFile,BufRead .aliases set syntax=bash
 
 "" Enable spellchecking for Markdown
 "autocmd FileType markdown setlocal spell
