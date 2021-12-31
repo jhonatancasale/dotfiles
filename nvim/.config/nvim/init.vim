@@ -185,7 +185,9 @@ au FocusGained,BufEnter * :silent! !
 " Python
 let python_highlight_all=1
 :map <Leader>pp  :!python3 %<CR>
+:map <Leader>pdb  :terminal python3 %<CR>
 :map <Leader>lpp :!clear; echo ""; python3 %<CR>
+:map <Leader>lpdb :terminal clear; echo ""; python3 %<CR>
 :map <Leader>ppt :!pytest<CR>
 
 "Flagging Unnecessary Whitespace
