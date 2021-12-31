@@ -73,7 +73,7 @@ alias cdutils="cd ${MAIN_UTILS}"
 alias cdscripts="cd ${MAIN_SCRIPTS}"
 alias metasolange="cd ${META_SOLANGE}"
 
-alias update="sudo apt-get update -y && sudo apt-get upgrade -y ; omz update; sleep 1; echo ""; source ${HOME}/.zshrc; export THIS_THEMES=${ZSH}/themes; diff ${THIS_THEMES}/nanotech-jc.zsh-theme ${THIS_THEMES}/nanotech.zsh-theme"
+alias update="sudo apt-get update -y && sudo apt-get upgrade -y ; cd ${ZSH}/themes ; omz update; diff nanotech-jc.zsh-theme nanotech.zsh-theme; cd - >/dev/null"
 alias sv=source_virtualenv_python
 alias cv=create_python_virtualenv
 alias cdcv="cd /mnt/c/Users/casal/Documents/cv"
@@ -88,3 +88,5 @@ alias soz="source ${HOME}/.zshrc"
 alias cdtools="cd ${HOME}/tools"
 
 alias luamake=${HOME}/tools/lua-language-server/3rd/luamake/luamake
+
+alias stow="stow --verbose"
