@@ -69,7 +69,8 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'vim-perl/vim-perl'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
-Plug 'chipsenkbeil/vimwiki-server.nvim', { 'tag': 'v0.1.0-alpha.5' }
+" Plug 'chipsenkbeil/vimwiki-server.nvim', { 'tag': 'v0.1.0-alpha.5' }
+" We need that broken Rust Module in order to use this plugin
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'numirias/semshi'
 Plug 'sheerun/vim-polyglot'
@@ -415,11 +416,11 @@ nnoremap <Leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>ps :Rg<SPACE>
 
 let wiki = {}
-let wiki.path = '$HOME/vimwiki/'
+let wiki.path = "${WIKIHOME}"
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 "TODO adicionar mais syntax's aqui
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'java': 'java','make': 'make', 'bash': 'sh', 'sql': 'sql'}
-let g:vimwiki_list = [wiki]
+let g:vimwiki_list = [{'path': "${WIKIHOME}", 'syntax': 'markdown', 'ext': '.md'}]
 let g:instant_markdown_autostart = 0
 map <Leader>md :InstantMarkdownPreview<CR>
 
