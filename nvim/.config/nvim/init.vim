@@ -69,6 +69,8 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'vim-perl/vim-perl'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
+Plug 'chipsenkbeil/vimwiki-server.nvim', { 'tag': 'v0.1.0-alpha.5' }
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'numirias/semshi'
 Plug 'sheerun/vim-polyglot'
 Plug 'Vimjas/vim-python-pep8-indent'
@@ -178,9 +180,6 @@ set autoread
 
 " Trigger autoread when changing buffers or coming back to vim in terminal.
 au FocusGained,BufEnter * :silent! !
-
-"some usual mapping
-:map <F3> :VimwikiAll2HTML<CR>:e<CR>
 
 " Python
 let python_highlight_all=1
@@ -415,22 +414,14 @@ nnoremap <Leader>u :UndotreeShow<CR>
 nnoremap <Leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>ps :Rg<SPACE>
 
-"vimwiki syntax highlight configuration
-"nmap <Leader>wf <Plug>VimwikiFollowLink 
 let wiki = {}
 let wiki.path = '$HOME/vimwiki/'
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 "TODO adicionar mais syntax's aqui
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'java': 'java','make': 'make', 'bash': 'sh', 'sql': 'sql'}
 let g:vimwiki_list = [wiki]
-"let g:vimwiki_list = [{
-"  \ 'path': '~/misc/vimwiki/',
-"  \ 'path_html': '~/web/otherware.org/vimwiki/',
-"  \ 'template_path': '~/misc/vimwiki/',
-"  \ 'template_default': 'default',
-"  \ 'template_ext': '.tpl.html',
-"  \ 'css_name': 'style.css',
-"  \ 'auto_export': 1}]
-"let g:vimwiki_list = [{'path': '/home/${USER}/vimwiki/', 'path_html': '/home/${USER}/vimwiki_html/'}]
+let g:instant_markdown_autostart = 0
+map <Leader>md :InstantMarkdownPreview<CR>
 
 " properly Calendar panel size
 nmap <Leader>dc :Calendar<cr>:vertical resize 27<cr>
