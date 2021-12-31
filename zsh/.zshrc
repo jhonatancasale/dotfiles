@@ -91,7 +91,8 @@ export LANG=en_US.UTF-8
 #Generic
 export WORKSPACE="${HOME}/shared-workspace"
 export PROJECTS="${WORKSPACE}/projects"
-export PYTHON_PLAYGROUND="${WORKSPACE}/programming-languages/python/playground"
+export PROGRAMMING_LANGUAGES=${WORKSPACE}/programming-languages
+export PYTHON_PLAYGROUND="${PROGRAMMING_LANGUAGES}/python/playground"
 
 #Docker
 export DOCKERDATA="${HOME}/dockerdata"
