@@ -74,7 +74,7 @@ alias cdutils="cd ${MAIN_UTILS}"
 alias cdscripts="cd ${MAIN_SCRIPTS}"
 alias metasolange="cd ${META_SOLANGE}"
 
-alias update="sudo apt-get update -y && sudo apt-get upgrade -y ; cd ${ZSH}/themes ; omz update; diff nanotech-jc.zsh-theme nanotech.zsh-theme; cd - >/dev/null"
+alias update="sudo apt-get update -y && sudo apt-get upgrade -y ; cd ${ZSH}/themes ; diff nanotech-jc.zsh-theme nanotech.zsh-theme ; cd ${OLDPWD} >/dev/null ; omz update"
 alias sv=source_virtualenv_python
 alias cv=create_python_virtualenv
 alias cdcv="cd /mnt/c/Users/casal/Documents/cv"
