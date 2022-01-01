@@ -171,3 +171,4 @@ export DISPLAY=$(grep -oP "(?<=nameserver ).+" /etc/resolv.conf):0.0
 
 # For some reason, this line need to be at the bottom
 bindkey '^ ' autosuggest-accept
+bindkey '^' autosuggest-execute
