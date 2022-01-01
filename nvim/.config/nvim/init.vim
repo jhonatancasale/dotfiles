@@ -49,7 +49,9 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'mattn/calendar-vim'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvie/vim-flake8'
@@ -78,6 +80,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'dense-analysis/ale'
 Plug 'mbbill/undotree'
 Plug 'vim-utils/vim-man'
+Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
@@ -97,19 +100,6 @@ let g:ale_fixers = {
 
 nmap <F10> :ALEFix<CR>
 let g:ale_fix_on_save = 1
-
-" nmap <silent> gd <Plug>(coc-definition)
-
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-" function! s:show_documentation()
-"   if (index(['vim','help'], &filetype) >= 0)
-"     execute 'h '.expand('<cword>')
-"   else
-"     call CocAction('doHover')
-"   endif
-" endfunction
-
-" nmap <leader>rn <Plug>(coc-rename)
 
 filetype plugin indent on
 
@@ -142,7 +132,6 @@ set shiftround                  " [>>|<<] moves it to the next multiple value of
 set expandtab                   " convert <TAB> to <space>
 "need :retab
 set ai                          " auto identação
-set ttyfast                     " melhora o redraw das janelas
 set cul                         " abreviação de cursor line ( destaca a linha atual )
 set cuc                         " abreviação de cursor column ( destaca a coluna atual )
 set nu                          " mostra numeração de linhas
@@ -153,8 +142,19 @@ set ruler
 set encoding=utf-8
 set hlsearch
 set noswapfile
+set nobackup
 set undodir=~/.vim/undodir
 set undofile
+set guicursor=
+set hidden
+set scrolloff=8
+set termguicolors
+set nowrap
+set signcolumn=yes
+
+set cmdheight=2
+set updatetime=50
+set shortmess+=c
 
 "Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -184,11 +184,11 @@ au FocusGained,BufEnter * :silent! !
 
 " Python
 let python_highlight_all=1
-:map <Leader>pp  :!python3 %<CR>
-:map <Leader>pdb  :terminal python3 %<CR>
-:map <Leader>lpp :!clear; echo ""; python3 %<CR>
-:map <Leader>lpdb :terminal clear; echo ""; python3 %<CR>
-:map <Leader>ppt :!pytest<CR>
+:map <leader>pp  :!python3 %<CR>
+:map <leader>pdb  :terminal python3 %<CR>
+:map <leader>lpp :!clear; echo ""; python3 %<CR>
+:map <leader>lpdb :terminal clear; echo ""; python3 %<CR>
+:map <leader>ppt :!pytest<CR>
 
 "Flagging Unnecessary Whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
@@ -196,11 +196,11 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 "C/Cpp
 :map <F4>        :!make<CR>
-:map <Leader>bmc :!bm gcc % %:r<CR>
-:map <Leader>bmp :!bm g++ % %:r<CR>
-:map <Leader>cc  :!make run<CR>
-:map <Leader>lcc :!clear; make run<CR>
-"test ??? :map <Leader>ppt :!pytest<CR>
+:map <leader>bmc :!bm gcc % %:r<CR>
+:map <leader>bmp :!bm g++ % %:r<CR>
+:map <leader>cc  :!make run<CR>
+:map <leader>lcc :!clear; make run<CR>
+"test ??? :map <leader>ppt :!pytest<CR>
 
 "Java
 :map <F5> :!ant<CR>
@@ -216,7 +216,7 @@ autocmd FileType html :map ;6 i<h1></h6><Esc>^f>a
 autocmd FileType html :map ;d i<div></div><Esc>^f>a
 
 
-:nnoremap <Leader>ff :buffers<CR>:buffer<Space>
+:nnoremap <leader>ff :buffers<CR>:buffer<Space>
 
 set tw=79
 execute "set colorcolumn=" . join(range(80,86), ',')
@@ -298,8 +298,8 @@ set diffopt+=vertical
 set pastetoggle=<F2> "F2 before pasting to preserve indentation
 "Copy paste to/from clipboard
 vnoremap <C-c> "*y
-map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
-map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
+map <silent><leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
+map <silent><leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
 map <silent><C-b> :set paste<CR>o<esc>"*]p:set nopaste<cr>"
 
 """ MORE AWESOME HOTKEYS
@@ -332,7 +332,6 @@ nnoremap <silent> <Left> :vertical resize -5<cr>
 nnoremap <silent> <Up> :resize +5<cr>
 nnoremap <silent> <Down> :resize -5<cr>
 
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
 " Switch between the last two files
@@ -371,7 +370,7 @@ autocmd BufNewFile,BufRead .aliases set syntax=bash
 "autocmd FileType markdown setlocal spell
 
 " "Automatically wrap at 80 characters for Markdown
-"autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
 "Automatically wrap at 72 characters and spell check git commit messages
 autocmd FileType gitcommit setlocal textwidth=72
@@ -381,19 +380,6 @@ autocmd FileType gitcommit setlocal spell
 autocmd FileType css,scss,sass,less setlocal iskeyword+=-
 augroup END
 
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
@@ -401,19 +387,19 @@ let g:NERDTreeWinPos = "left"
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let NERDTreeShowHidden=1
 
-map <Leader>p <Plug>(easymotion-prefix)
+map <leader>p <Plug>(easymotion-prefix)
 nmap S <Plug>(easymotion-s2)
 nmap T <Plug>(easymotion-t2)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 let g:EasyMotion_smartcase = 1
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-nnoremap <Leader>u :UndotreeShow<CR>
-nnoremap <Leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <Leader>ps :Rg<SPACE>
+map <leader>l <Plug>(easymotion-lineforward)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+map <leader>h <Plug>(easymotion-linebackward)
+nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <leader>ps :Rg<SPACE>
 
 let wiki = {}
 let wiki.path = "${WIKIHOME}"
@@ -422,12 +408,12 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown'
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'java': 'java','make': 'make', 'bash': 'sh', 'sql': 'sql'}
 let g:vimwiki_list = [{'path': "${WIKIHOME}", 'syntax': 'markdown', 'ext': '.md'}]
 let g:instant_markdown_autostart = 0
-map <Leader>md :InstantMarkdownPreview<CR>
+map <leader>md :InstantMarkdownPreview<CR>
 
 " properly Calendar panel size
-nmap <Leader>dc :Calendar<cr>:vertical resize 27<cr>
+nmap <leader>dc :Calendar<cr>:vertical resize 27<cr>
 
-nmap <silent><Leader>bo :.!${MAIN_SCRIPTS}/diary_wiki_template.sh<cr>
+nmap <silent><leader>bo :.!${MAIN_SCRIPTS}/diary_wiki_template.sh<cr>
 
 
 " Note that remapping C-s requires flow control to be disabled
@@ -531,7 +517,7 @@ EOF
 lua << END
 require'lualine'.setup {
   options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = 'gruvbox_dark',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
@@ -556,5 +542,24 @@ require'lualine'.setup {
   },
   tabline = {},
   extensions = {}
+}
+END
+
+lua << END
+require'nvim-web-devicons'.setup {
+ -- your personnal icons can go here (to override)
+ -- you can specify color or cterm_color instead of specifying both of them
+ -- DevIcon will be appended to `name`
+ override = {
+  zsh = {
+    icon = "",
+    color = "#428850",
+    cterm_color = "65",
+    name = "Zsh"
+  }
+ };
+ -- globally enable default icons (default to false)
+ -- will get overriden by `get_icons` option
+ default = true;
 }
 END
