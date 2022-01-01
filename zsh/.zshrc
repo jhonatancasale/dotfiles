@@ -57,8 +57,6 @@ plugins=(
   zsh-z
 )
 
-bindkey '^ ' autosuggest-accept
-
 #Plugins tunning
 #TIMER_PRECISION allows to control number of decimal places (default 1)
 export TIMER_PRECISION=2
@@ -170,3 +168,6 @@ PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"; export PERL_MM_OPT;
 
 # We need this to show python.matplotlib.pyplot.show() from WSL to Windows
 export DISPLAY=$(grep -oP "(?<=nameserver ).+" /etc/resolv.conf):0.0
+
+# For some reason, this line need to be at the bottom
+bindkey '^ ' autosuggest-accept
