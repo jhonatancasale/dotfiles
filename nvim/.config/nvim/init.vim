@@ -405,7 +405,8 @@ let wiki = {}
 let wiki.path = "${WIKIHOME}"
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 "TODO adicionar mais syntax's aqui
-let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'java': 'java','make': 'make', 'bash': 'sh', 'sql': 'sql'}
+" let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'java': 'java','make': 'make', 'bash': 'sh', 'sql': 'sql', 'css': 'css'}
+let wiki.automatic_nested_syntaxes = 1
 let g:vimwiki_list = [{'path': "${WIKIHOME}", 'syntax': 'markdown', 'ext': '.md'}]
 let g:instant_markdown_autostart = 0
 map <leader>md :InstantMarkdownPreview<CR>
