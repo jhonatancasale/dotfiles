@@ -190,6 +190,10 @@ let python_highlight_all=1
 :map <leader>lpdb :terminal clear; echo ""; python3 %<CR>
 :map <leader>ppt :!pytest<CR>
 
+"Rust
+:map <leader>lrc :!clear; echo ""; rustc %<CR>
+:map <leader>lrr :!clear; echo ""; THISFILE=%; ./${THISFILE/.rs/}<CR>
+
 "Flagging Unnecessary Whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -511,6 +515,9 @@ lua <<EOF
     capabilities = capabilities
   }
   require('lspconfig')['sumneko_lua'].setup {
+    capabilities = capabilities
+  }
+  require('lspconfig')['rust_analyzer'].setup {
     capabilities = capabilities
   }
 EOF
