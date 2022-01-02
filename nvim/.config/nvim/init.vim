@@ -71,8 +71,10 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'vim-perl/vim-perl'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
+
 " Plug 'chipsenkbeil/vimwiki-server.nvim', { 'tag': 'v0.1.0-alpha.5' }
 " We need that broken Rust Module in order to use this plugin
+
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'numirias/semshi'
 Plug 'sheerun/vim-polyglot'
@@ -90,12 +92,14 @@ endif
 
 let g:ale_linters = {
       \   'python': ['flake8', 'pylint'],
+      \   'rust': ['analyzer'],
       \   'ruby': ['standardrb', 'rubocop'],
       \   'javascript': ['eslint'],
       \}
 
 let g:ale_fixers = {
       \    'python': ['yapf'],
+      \    'rust': ['rustfmt'],
       \}
 
 nmap <F10> :ALEFix<CR>
@@ -191,8 +195,8 @@ let python_highlight_all=1
 :map <leader>ppt :!pytest<CR>
 
 "Rust
-:map <leader>lrc :!clear; echo ""; rustc %<CR>
-:map <leader>lrr :!clear; echo ""; THISFILE=%; ./${THISFILE/.rs/}<CR>
+:map <leader>rc :!echo ""; rustc %<CR>
+:map <leader>rr :!echo ""; THISFILE=%; ./${THISFILE/.rs/}<CR>
 
 "Flagging Unnecessary Whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
@@ -457,6 +461,22 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 END
 
+" if executable('rust-analyzer')
+"   au User lsp_setup call lsp#register_server({
+"         \   'name': 'Rust Language Server',
+"         \   'cmd': {server_info->['rust-analyzer']},
+"         \   'whitelist': ['rust'],
+"         \   'initialization_options': {
+"         \     'cargo': {
+"         \       'loadOutDirsFromCheck': v:true,
+"         \     },
+"         \     'procMacro': {
+"         \       'enable': v:true,
+"         \     },
+"         \   },
+"         \ })
+" endif
+
 lua <<EOF
   -- Setup nvim-cmp.
   local cmp = require'cmp'
@@ -525,7 +545,7 @@ EOF
 lua << END
 require'lualine'.setup {
   options = {
-    icons_enabled = true,
+    icons_enabled = false,
     theme = 'gruvbox_dark',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
