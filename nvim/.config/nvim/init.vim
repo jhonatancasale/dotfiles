@@ -58,7 +58,8 @@ Plug 'nvie/vim-flake8'
 Plug 'plasticboy/vim-markdown'
 Plug 'neomake/neomake'
 Plug 'sunaku/vim-ruby-minitest'
-Plug 'tmhedberg/SimpylFold'
+" Plug 'kalekundert/vim-coiled-snake'
+Plug 'Konfekt/FastFold'
 Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-fugitive'
@@ -197,6 +198,8 @@ let python_highlight_all=1
 "Rust
 :map <leader>rc :!echo ""; rustc %<CR>
 :map <leader>rr :!echo ""; THISFILE=%; ./${THISFILE/.rs/}<CR>
+:map <leader>cb :!echo ""; cargo build<CR>
+:map <leader>cr :!echo ""; cargo run<CR>
 
 "Flagging Unnecessary Whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
@@ -243,11 +246,11 @@ endfunction
 " I want to see Python.docstrings `unfolded`
 nnoremap <space> za
 
-" SimpyIFold
-set foldmethod=indent
-set foldlevel=99
-set foldnestmax=2
-let g:SimpylFold_docstring_preview = 1
+" " SimpyIFold
+" set foldmethod=indent
+" set foldlevel=99
+" set foldnestmax=2
+" let g:SimpylFold_docstring_preview = 1
 
 " Python configs
 au BufNewFile,BufRead *.py
