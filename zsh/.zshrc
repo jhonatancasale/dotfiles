@@ -170,5 +170,5 @@ PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"; export PERL_MM_OPT;
 export DISPLAY=$(grep -oP "(?<=nameserver ).+" /etc/resolv.conf):0.0
 
 # For some reason, this line need to be at the bottom
-bindkey '^ ' autosuggest-accept
-bindkey '^' autosuggest-execute
+bindkey '^w' autosuggest-accept
+bindkey '^ ' autosuggest-execute
