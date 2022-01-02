@@ -35,6 +35,7 @@ alias couchbaser="docker container run -d --name couchbase-server -p 8091-8094:8
 alias grafanar="docker run -d --name grafana -p 3000:3000 grafana/grafana"
 alias virtualenv="virtualenv --python=python3"
 alias cdpython="cd ${PROGRAMMING_LANGUAGES}/python"
+alias cdrust="cd ${PROGRAMMING_LANGUAGES}/rust"
 alias cdlua="cd ${PROGRAMMING_LANGUAGES}/lua"
 alias cdpy="cd ${PROGRAMMING_LANGUAGES}/python/learning-python"
 alias cdsql="cd ${PROGRAMMING_LANGUAGES}/sql/learning-sql"
@@ -74,7 +75,7 @@ alias cdutils="cd ${MAIN_UTILS}"
 alias cdscripts="cd ${MAIN_SCRIPTS}"
 alias metasolange="cd ${META_SOLANGE}"
 
-alias update="sudo apt-get update -y && sudo apt-get upgrade -y ; cd ${ZSH}/themes ; diff nanotech-jc.zsh-theme nanotech.zsh-theme ; cd ${OLDPWD} >/dev/null ; omz update"
+alias update="sudo apt-get update -y && sudo apt-get upgrade -y ; rustup update; cd ${ZSH}/themes ; diff nanotech-jc.zsh-theme nanotech.zsh-theme ; cd ${OLDPWD} >/dev/null ; omz update"
 alias sv=source_virtualenv_python
 alias cv=create_python_virtualenv
 alias cdcv="cd /mnt/c/Users/casal/Documents/cv"
@@ -89,6 +90,10 @@ alias soz="source ${HOME}/.zshrc"
 alias cdtools="cd ${HOME}/tools"
 
 alias luamake=${HOME}/tools/lua-language-server/3rd/luamake/luamake
-alias vtinit=v $(which tinit)
+
+alias vtinit="v $(which tinit)"
+alias vzsh="v ${HOME}/.zshrc"
+alias valias="v ${HOME}/.aliases"
+alias vimrc="v ${HOME}/.config/nvim/init.vim"
 
 alias stow="stow --verbose"
