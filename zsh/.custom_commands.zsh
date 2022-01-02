@@ -37,3 +37,21 @@ function create_python_virtualenv() {
   source $1/bin/activate
   pip install neovim black flake8 yapf pylint mypy
 }
+
+function rust() {
+    project_name=$1
+
+    cat > Cargo.toml << EOT
+[package]
+name = "${project_name}" # the name of the package
+version = "0.0.1"    # the current version, obeying semver
+
+[[bin]]
+name = "${project_name}"
+path = "src/${project_name}.rs"
+EOT
+
+    mkdir -p src
+    touch src/${project_name}.rs
+    tree
+}
