@@ -89,5 +89,6 @@ alias soz="source ${HOME}/.zshrc"
 alias cdtools="cd ${HOME}/tools"
 
 alias luamake=${HOME}/tools/lua-language-server/3rd/luamake/luamake
+alias vtinit=v $(which tinit)
 
 alias stow="stow --verbose"
