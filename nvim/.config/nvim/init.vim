@@ -44,16 +44,16 @@ Plug 'ervandew/supertab'
 Plug 'shaneharper/vim-rtags'
 Plug 'godlygeek/tabular'
 Plug 'jalvesaq/Nvim-R'
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'mattn/calendar-vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvie/vim-flake8'
 Plug 'plasticboy/vim-markdown'
 Plug 'neomake/neomake'
@@ -392,11 +392,6 @@ autocmd FileType css,scss,sass,less setlocal iskeyword+=-
 augroup END
 
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-let g:NERDTreeWinPos = "left"
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-let NERDTreeShowHidden=1
 
 map <leader>p <Plug>(easymotion-prefix)
 nmap S <Plug>(easymotion-s2)
