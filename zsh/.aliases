@@ -97,3 +97,5 @@ alias valias="v ${HOME}/.aliases"
 alias vimrc="v ${HOME}/.config/nvim/init.vim"
 
 alias stow="stow --verbose"
+
+alias purge="sudo apt-get -y purge"
