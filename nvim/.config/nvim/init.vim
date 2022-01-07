@@ -32,7 +32,7 @@ Plug 'nvim-lua/lsp_extensions.nvim'
 
 
 " snippets
-Plug 'saadparwaiz2/cmp_luasnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 " snippet engine
 Plug 'L3MON4D3/LuaSnip'
 " a bunch of snippets to use
@@ -487,7 +487,7 @@ END
 lua << END
 require'lualine'.setup {
   options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = 'gruvbox_dark',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
