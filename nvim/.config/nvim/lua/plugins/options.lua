@@ -55,6 +55,8 @@ local options = {
     background = "dark",
     undodir = os.getenv ( "HOME" ) .. "/.vim/undodir",
     backspace = '2',                                  -- Backspace deletes like most programs in insert mode
+    spell = true,
+    spelllang = { 'en_us' },
     -- [[ Missing things from the original init.vim
     -- set t_Co=256
     -- set winwidth=84
