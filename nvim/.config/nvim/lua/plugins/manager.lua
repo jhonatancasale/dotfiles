@@ -15,11 +15,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
+-- Autocommand that reloads neovim whenever you save the {{ this }} file
 vim.cmd [[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost manager.lua source <afile> | PackerSync
   augroup end
 ]]
 
@@ -41,9 +41,12 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "wbthomason/packer.nvim"                  -- Have packer manage itself
+  use "nvim-lua/popup.nvim"                     -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim"                   -- Useful lua functions used ny lots of plugins
+
+  use "gruvbox-community/gruvbox"               -- The de facto default colorscheme
+  use "vimwiki/vimwiki"                         -- Wiki language provider for vim
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
