@@ -81,6 +81,7 @@ return packer.startup(function(use)
   -- Utilities
   use "vimwiki/vimwiki"                         -- Wiki language provider for vim
   use "lewis6991/gitsigns.nvim"                 -- Provide visual clues about git events
+  use "tpope/vim-surround"                      -- just to change "/'/(/[/{ in a easy way
 
 
 
