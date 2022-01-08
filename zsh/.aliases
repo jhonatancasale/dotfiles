@@ -94,7 +94,7 @@ alias luamake=${HOME}/tools/lua-language-server/3rd/luamake/luamake
 alias vtinit="v $(which tinit)"
 alias vzsh="v ${HOME}/.zshrc"
 alias valias="v ${HOME}/.aliases"
-alias vimrc="v ${HOME}/.config/nvim/init.vim"
+alias vimrc="v ${HOME}/.config/nvim/init.lua"
 
 alias stow="stow --verbose"
 
