@@ -67,3 +67,27 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+-- Programming Languages
+-- Python
+keymap("n", "<leader>pp", ":!python3 %<CR>", opts)
+keymap("n", "<leader>pdb", ":terminal python3 %<CR>", opts)
+keymap("n", "<leader>lpp", ":!clear; echo ''; python3 %<CR>", opts)
+keymap("n", "<leader>lpdb", ":terminal clear; echo ''; python3 %<CR>", opts)
+keymap("n", "<leader>ppt", ":!pytest<CR>", opts)
+
+-- Rust
+keymap("n", "<leader>cb", ":!echo ''; cargo build<CR>", opts)
+keymap("n", "<leader>cr", ":!echo ''; cargo un<CR>", opts)
+
+
+-- Quickly close windows
+keymap("n", "<leader>x", ":x<CR>", opts)
+keymap("n", "<leader>X", ":q<CR>", opts)
+
+-- Switch between the last two files
+keymap("n", "<leader><leader>", "<c-^>", opts)
+
+-- Note that remapping C-s requires flow control to be disabled
+-- (e.g. in .bashrc or .zshrc)
+keymap("n", "<C-s>", "<esc>:w<CR>", opts)
+keymap("i", "<C-s>", "<esc>:w<CR>", opts)
