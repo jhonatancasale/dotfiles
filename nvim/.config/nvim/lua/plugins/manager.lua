@@ -56,6 +56,8 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline"                     -- cmdline completions
   use "saadparwaiz1/cmp_luasnip"                -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"                    -- use cmp with LSP
+  use "f3fora/cmp-spell"                        -- spell source for nvim-cmp based on vim's spellsuggest
+  use "hrsh7th/cmp-nvim-lua"
 
   -- snippets
   use "L3MON4D3/LuaSnip"                        -- snippet engine
