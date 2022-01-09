@@ -77,7 +77,7 @@ keymap("n", "<leader>ppt", ":!pytest<CR>", opts)
 
 -- Rust
 keymap("n", "<leader>cb", ":!echo ''; cargo build<CR>", opts)
-keymap("n", "<leader>cr", ":!echo ''; cargo un<CR>", opts)
+keymap("n", "<leader>cr", ":!echo ''; cargo run<CR>", opts)
 
 
 -- Quickly close windows
