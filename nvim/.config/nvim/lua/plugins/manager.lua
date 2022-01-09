@@ -45,6 +45,7 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim"                     -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim"                   -- Useful lua functions used ny lots of plugins
   use "kyazdani42/nvim-web-devicons"            -- Provide fancy and useful icons
+  use "antoinemadec/FixCursorHold.nvim"         -- This is needed to fix lsp doc highlight
 
   -- Colorschemes
   use "gruvbox-community/gruvbox"               -- The de facto default colorscheme
@@ -64,10 +65,10 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets"            -- a bunch of snippets to use
 
   -- LSP
-  -- use "neovim/nvim-lspconfig"                   -- enable LSP
-  -- use "williamboman/nvim-lsp-installer"         -- simple to use language server installer
-  -- use "tamago324/nlsp-settings.nvim"            -- language server settings defined in json for
-  -- use "jose-elias-alvarez/null-ls.nvim"         -- for formatters and linters
+  use "neovim/nvim-lspconfig"                   -- enable LSP
+  use "williamboman/nvim-lsp-installer"         -- simple to use language server installer
+  use "tamago324/nlsp-settings.nvim"            -- language server settings defined in json for
+  use "jose-elias-alvarez/null-ls.nvim"         -- for formatters and linters
 
   -- Telescope
   -- use "nvim-telescope/telescope.nvim"
