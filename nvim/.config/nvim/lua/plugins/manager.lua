@@ -71,8 +71,8 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim"         -- for formatters and linters
 
   -- Telescope
-  -- use "nvim-telescope/telescope.nvim"
-  --
+  use "nvim-telescope/telescope.nvim"
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -83,6 +83,21 @@ return packer.startup(function(use)
   use "vimwiki/vimwiki"                         -- Wiki language provider for vim
   use "lewis6991/gitsigns.nvim"                 -- Provide visual clues about git events
   use "tpope/vim-surround"                      -- just to change "/'/(/[/{ in a easy way
+  use "windwp/nvim-autopairs"                   -- Autopairs, integrates with both cmp and treesitter
+  use "p00f/nvim-ts-rainbow"                    -- Color closing ([{
+
+  use "numToStr/Comment.nvim"                   -- Easily comment stuff
+  use "kyazdani42/nvim-tree.lua"                -- ???
+  use "akinsho/bufferline.nvim"                 -- ???
+  use "moll/vim-bbye"                           -- ???
+  use "nvim-lualine/lualine.nvim"               -- ???
+  use "akinsho/toggleterm.nvim"                 -- ???
+  use "ahmedkhalf/project.nvim"                 -- ???
+  use "lewis6991/impatient.nvim"                -- ???
+  use "lukas-reineke/indent-blankline.nvim"     -- ???
+  use "goolord/alpha-nvim"                      -- ???
+  use "folke/which-key.nvim"                    -- ???
+
 
 
 
