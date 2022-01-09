@@ -93,4 +93,4 @@ keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
 
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
-keymap("n", "<leader>f", ":Format<CR><ESC>:5sleep<CR><ESC>:retab<CR>", opts)
+keymap("n", "<leader>t", ":Format<CR><ESC>:5sleep<CR><ESC>:retab<CR>", opts)
