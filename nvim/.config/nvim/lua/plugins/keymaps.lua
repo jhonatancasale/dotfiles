@@ -88,9 +88,9 @@ keymap("n", "<leader><leader>", "<c-^>", opts)
 
 -- Note that remapping C-s requires flow control to be disabled
 -- (e.g. in .bashrc or .zshrc)
-keymap("n", "<C-s>", "<esc>:w<CR>", opts)
-keymap("i", "<C-s>", "<esc>:w<CR>", opts)
+keymap("n", "<C-s>", "<ESC>:w<CR>", opts)
+keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
 
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
-keymap("n", "<leader>f", ":Format<CR>:retab<CR>", opts)
+keymap("n", "<leader>f", ":Format<CR><ESC>:5sleep<CR><ESC>:retab<CR>", opts)
