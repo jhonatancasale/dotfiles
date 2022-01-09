@@ -32,7 +32,7 @@ local options = {
     cursorline = true,                                -- highlight the current line
     cursorcolumn = true,                              -- highlight the current column
     number = true,                                    -- set numbered lines
-    relativenumber = false,                           -- set relative numbered lines
+    relativenumber = true,                            -- set relative numbered lines
     numberwidth = 5,                                  -- set number column width to 2 {default 4}
     signcolumn = "yes",                               -- always show the sign column, otherwise it would shift the text each time
     scrolloff = 8,                                    -- is one of my fav
@@ -50,7 +50,6 @@ local options = {
     autoread = true,
     wrap = false,                                     -- display lines as one long line
     -- textwidth = 79,                                -- either wrap = true and this, or wrap = false
-    relativenumber = true,
     pastetoggle = "<F2>",                             -- "F2 before pasting to preserve indentation
     background = "dark",
     undodir = os.getenv ( "HOME" ) .. "/.vim/undodir",
