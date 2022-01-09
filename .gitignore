@@ -81,4 +81,5 @@ luac.out
 *.hex
 
 
-nvim/.config/nvim/plugin/packer_compiled.lua
+# Explicit ignore the Packer plugin folder
+nvim/.config/nvim/plugin
