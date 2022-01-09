@@ -79,7 +79,6 @@ keymap("n", "<leader>ppt", ":!pytest<CR>", opts)
 keymap("n", "<leader>cb", ":!echo ''; cargo build<CR>", opts)
 keymap("n", "<leader>cr", ":!echo ''; cargo run<CR>", opts)
 
-
 -- Quickly close windows
 keymap("n", "<leader>x", ":x<CR>", opts)
 keymap("n", "<leader>X", ":q<CR>", opts)
@@ -93,3 +92,5 @@ keymap("n", "<C-s>", "<esc>:w<CR>", opts)
 keymap("i", "<C-s>", "<esc>:w<CR>", opts)
 
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
+
+keymap("n", "<leader>f", ":Format<CR>:retab<CR>", opts)
