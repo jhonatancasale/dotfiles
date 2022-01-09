@@ -96,6 +96,7 @@ alias vtinit="v $(which tinit)"
 alias vzsh="v ${HOME}/.zshrc"
 alias valias="v ${HOME}/.aliases"
 alias vimrc="v ${HOME}/.config/nvim/init.lua"
+alias dot="cd ${HOME}/.dotfiles"
 
 alias stow="stow --verbose"
 
