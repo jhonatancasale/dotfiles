@@ -46,3 +46,6 @@ gitsigns.setup {
     enable = false,
   },
 }
+
+-- Explicit change the highlight of current_line_blame
+vim.cmd [[ highlight GitSignsCurrentLineBlame guifg=#ffffff ]]
