@@ -49,6 +49,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "gruvbox-community/gruvbox"               -- The de facto default colorscheme
+  use "numirias/semshi"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"                        -- The completion plugin
