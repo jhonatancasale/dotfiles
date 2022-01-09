@@ -89,9 +89,9 @@ return packer.startup(function(use)
 
   use "numToStr/Comment.nvim"                       -- Easily comment stuff
   use "JoosepAlviste/nvim-ts-context-commentstring" -- We need this to comment some JS
-  use "kyazdani42/nvim-tree.lua"                    -- ???
-  use "akinsho/bufferline.nvim"                     -- ???
-  use "moll/vim-bbye"                               -- ???
+  use "kyazdani42/nvim-tree.lua"                    -- Add File Explorer options
+  use "akinsho/bufferline.nvim"                     -- Display all the buffers on top
+  use "moll/vim-bbye"                               -- gives you :Bdelete and :Bwipeout commands that behave like well designed citizens
   use "nvim-lualine/lualine.nvim"                   -- ???
   use "akinsho/toggleterm.nvim"                     -- ???
   use "ahmedkhalf/project.nvim"                     -- ???
