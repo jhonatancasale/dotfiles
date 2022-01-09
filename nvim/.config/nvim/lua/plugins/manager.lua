@@ -41,35 +41,35 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- Mandatory-ish
-  use "wbthomason/packer.nvim"                  -- Have packer manage itself
-  use "nvim-lua/popup.nvim"                     -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim"                   -- Useful lua functions used ny lots of plugins
-  use "kyazdani42/nvim-web-devicons"            -- Provide fancy and useful icons
-  use "antoinemadec/FixCursorHold.nvim"         -- This is needed to fix lsp doc highlight
+  use "wbthomason/packer.nvim"                      -- Have packer manage itself
+  use "nvim-lua/popup.nvim"                         -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim"                       -- Useful lua functions used ny lots of plugins
+  use "kyazdani42/nvim-web-devicons"                -- Provide fancy and useful icons
+  use "antoinemadec/FixCursorHold.nvim"             -- This is needed to fix lsp doc highlight
 
   -- Colorschemes
-  use "gruvbox-community/gruvbox"               -- The de facto default colorscheme
+  use "gruvbox-community/gruvbox"                   -- The de facto default colorscheme
   use "numirias/semshi"
 
   -- cmp plugins
-  use "hrsh7th/nvim-cmp"                        -- The completion plugin
-  use "hrsh7th/cmp-buffer"                      -- buffer completions
-  use "hrsh7th/cmp-path"                        -- path completions
-  use "hrsh7th/cmp-cmdline"                     -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip"                -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"                    -- use cmp with LSP
-  use "f3fora/cmp-spell"                        -- spell source for nvim-cmp based on vim's spellsuggest
+  use "hrsh7th/nvim-cmp"                            -- The completion plugin
+  use "hrsh7th/cmp-buffer"                          -- buffer completions
+  use "hrsh7th/cmp-path"                            -- path completions
+  use "hrsh7th/cmp-cmdline"                         -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip"                    -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp"                        -- use cmp with LSP
+  use "f3fora/cmp-spell"                            -- spell source for nvim-cmp based on vim's spellsuggest
   use "hrsh7th/cmp-nvim-lua"
 
   -- snippets
-  use "L3MON4D3/LuaSnip"                        -- snippet engine
-  use "rafamadriz/friendly-snippets"            -- a bunch of snippets to use
+  use "L3MON4D3/LuaSnip"                            -- snippet engine
+  use "rafamadriz/friendly-snippets"                -- a bunch of snippets to use
 
   -- LSP
-  use "neovim/nvim-lspconfig"                   -- enable LSP
-  use "williamboman/nvim-lsp-installer"         -- simple to use language server installer
-  use "tamago324/nlsp-settings.nvim"            -- language server settings defined in json for
-  use "jose-elias-alvarez/null-ls.nvim"         -- for formatters and linters
+  use "neovim/nvim-lspconfig"                       -- enable LSP
+  use "williamboman/nvim-lsp-installer"             -- simple to use language server installer
+  use "tamago324/nlsp-settings.nvim"                -- language server settings defined in json for
+  use "jose-elias-alvarez/null-ls.nvim"             -- for formatters and linters
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -81,23 +81,24 @@ return packer.startup(function(use)
   }
 
   -- Utilities
-  use "vimwiki/vimwiki"                         -- Wiki language provider for vim
-  use "lewis6991/gitsigns.nvim"                 -- Provide visual clues about git events
-  use "tpope/vim-surround"                      -- just to change "/'/(/[/{ in a easy way
-  use "windwp/nvim-autopairs"                   -- Autopairs, integrates with both cmp and treesitter
-  use "p00f/nvim-ts-rainbow"                    -- Color closing ([{
+  use "vimwiki/vimwiki"                             -- Wiki language provider for vim
+  use "lewis6991/gitsigns.nvim"                     -- Provide visual clues about git events
+  use "tpope/vim-surround"                          -- just to change "/'/(/[/{ in a easy way
+  use "windwp/nvim-autopairs"                       -- Autopairs, integrates with both cmp and treesitter
+  use "p00f/nvim-ts-rainbow"                        -- Color closing ([{
 
-  use "numToStr/Comment.nvim"                   -- Easily comment stuff
-  use "kyazdani42/nvim-tree.lua"                -- ???
-  use "akinsho/bufferline.nvim"                 -- ???
-  use "moll/vim-bbye"                           -- ???
-  use "nvim-lualine/lualine.nvim"               -- ???
-  use "akinsho/toggleterm.nvim"                 -- ???
-  use "ahmedkhalf/project.nvim"                 -- ???
-  use "lewis6991/impatient.nvim"                -- ???
-  use "lukas-reineke/indent-blankline.nvim"     -- ???
-  use "goolord/alpha-nvim"                      -- ???
-  use "folke/which-key.nvim"                    -- ???
+  use "numToStr/Comment.nvim"                       -- Easily comment stuff
+  use "JoosepAlviste/nvim-ts-context-commentstring" -- We need this to comment some JS
+  use "kyazdani42/nvim-tree.lua"                    -- ???
+  use "akinsho/bufferline.nvim"                     -- ???
+  use "moll/vim-bbye"                               -- ???
+  use "nvim-lualine/lualine.nvim"                   -- ???
+  use "akinsho/toggleterm.nvim"                     -- ???
+  use "ahmedkhalf/project.nvim"                     -- ???
+  use "lewis6991/impatient.nvim"                    -- ???
+  use "lukas-reineke/indent-blankline.nvim"         -- ???
+  use "goolord/alpha-nvim"                          -- ???
+  use "folke/which-key.nvim"                        -- ???
 
 
 
