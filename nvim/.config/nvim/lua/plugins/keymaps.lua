@@ -91,3 +91,5 @@ keymap("n", "<leader><leader>", "<c-^>", opts)
 -- (e.g. in .bashrc or .zshrc)
 keymap("n", "<C-s>", "<esc>:w<CR>", opts)
 keymap("i", "<C-s>", "<esc>:w<CR>", opts)
+
+keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
