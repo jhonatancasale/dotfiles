@@ -56,7 +56,7 @@ local options = {
     backspace = '2',                                  -- Backspace deletes like most programs in insert mode
     spell = true,
     spelllang = { 'en_us' },
-    -- autochdir = true,
+    autochdir = true,
     -- [[ Missing things from the original init.vim
     -- set t_Co=256
     -- set winwidth=84
@@ -69,6 +69,13 @@ local options = {
 vim.opt.shortmess:append "c"
 vim.opt.matchpairs:append "<:>"
 vim.opt.diffopt:append "vertical"
+
+-- VimWiki
+vim.g.vimwiki = {}
+vim.g.vimwiki.path = os.getenv( "WIKIHOME" )
+-- vim.g.vimwiki_ext2syntax = {{".md" = 'markdown', .markdown = 'markdown', .mdown = 'markdown'}}
+vim.g.vimwiki_list = {{path = os.getenv( "WIKIHOME" ), syntax = 'markdown', ext = '.md'}}
+vim.g.instant_markdown_autostart = 0
 
 for k, v in pairs(options) do
   vim.opt[k] = v
