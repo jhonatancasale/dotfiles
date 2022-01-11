@@ -5,6 +5,11 @@ vim.cmd [[
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200}) 
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    autocmd FocusGained,BufEnter * :silent! !
+    autocmd CmdwinEnter * nnoremap <CR> <CR>
+    autocmd BufReadPost quickfix nnoremap <CR> <CR>
+    autocmd BufNewFile,BufRead .aliases set syntax=bash
   augroup end
 
   augroup _git
