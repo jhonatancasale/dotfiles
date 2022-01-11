@@ -55,3 +55,33 @@ EOT
     touch src/${project_name}.rs
     tree
 }
+
+function update () {
+    _current_path=${PWD}
+    echo "[Update SO]"
+    sudo apt-get update -y && sudo apt-get upgrade -y
+    echo ""
+
+    echo "[Update Rust]"
+    rustup update
+    echo ""
+
+    echo "[Update zsh]"
+    cd ${ZSH}/themes
+    diff nanotech-jc.zsh-theme nanotech.zsh-theme
+    echo ""
+
+    echo "[Update npm modules]"
+    sudo npm update -g
+
+    echo "Attempting to call npm audit fix"
+    cd /tmp
+    npm i --package-lock-only
+    npm audit fix
+    echo ""
+
+    echo "[Update OMZ]"
+    omz update
+
+    cd ${_current_path} >/dev/null
+}
