@@ -18,10 +18,23 @@ null_ls.setup({
         formatting.stylua,
 
         -- Python
-        formatting.black.with({ extra_args = { "--fast" } }),
+        -- formatting.black.with({ extra_args = { "--fast" } }),
+        formatting.black,
         diagnostics.mypy,
 
         -- Rust
         formatting.rustfmt,
     },
+
+    -- auto forma on save
+    -- on_attach = function(client)
+    --  if client.resolved_capabilities.document_formatting then
+    --      vim.cmd([[
+    --            augroup LspFormatting
+    --                autocmd! * <buffer>
+    --                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+    --            augroup END
+    --            ]])
+    --  end
+    -- end,
 })
