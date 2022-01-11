@@ -94,3 +94,11 @@ keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
 keymap("n", "<leader>t", ":Format<CR><ESC>:5sleep<CR><ESC>:retab<CR>", opts)
+
+-- Use enter to create new lines w/o entering insert mode
+keymap("n", "<CR>", "o<ESC>", opts)
+
+
+-- Use tab to jump between blocks, because it's easier
+keymap("n", "<tab>", "%", opts)
+keymap("v", "<tab>", "%", opts)
