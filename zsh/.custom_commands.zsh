@@ -79,9 +79,8 @@ function update () {
     npm i --package-lock-only
     npm audit fix
     echo ""
+    cd ${_current_path} >/dev/null
 
     echo "[Update OMZ]"
     omz update
-
-    cd ${_current_path} >/dev/null
 }
