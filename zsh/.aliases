@@ -21,6 +21,7 @@ alias cdbin="cd ${WORKSPACE}/utils/bin"
 alias cdw="cd ${WORKSPACE}"
 alias cdp="cd ${PROJECTS}"
 alias projects="cd ${PROJECTS}"
+alias workspace="cd ${HOME}/workspace"
 alias create_tmp="mkdir $(date '+%Y%m%d_%H%M%S')"
 alias tmp="cd /tmp"
 alias v=vim
