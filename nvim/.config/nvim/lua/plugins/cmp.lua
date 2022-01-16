@@ -106,7 +106,7 @@ cmp.setup {
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
-        spell = "[Spell]",
+        -- spell = "[Spell]",
       })[entry.source.name]
       return vim_item
     end,
@@ -117,7 +117,7 @@ cmp.setup {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
-    { name = "spell" },
+    -- { name = "spell" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
