@@ -101,3 +101,6 @@ alias dot="cd ${HOME}/.dotfiles"
 alias stow="stow --verbose"
 
 alias purge="sudo apt-get -y purge"
+
+alias push="ggpush"
+alias pull="ggpull"
