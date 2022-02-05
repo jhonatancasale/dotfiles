@@ -93,6 +93,7 @@ export PROGRAMMING_LANGUAGES=${WORKSPACE}/programming-languages
 export PYTHON_PLAYGROUND="${PROGRAMMING_LANGUAGES}/python/playground"
 
 #Docker
+export CONTAINER_MANAGER=podman
 export DOCKERDATA="${HOME}/dockerdata"
 
 #System

@@ -27,6 +27,7 @@ alias tmp="cd /tmp"
 alias v=vim
 alias vim=nvim
 alias dopip="pip install black flake8 yapf pylint neovim mypy pydantic"
+alias docker=${CONTAINER_MANAGER}
 alias dockerdata="cd ${DOCKERDATA}"
 alias update-jenkins="${HOME}/utils/scripts/update-jenkins-image.zsh"
 alias update-prometheus="docker pull prom/prometheus"
