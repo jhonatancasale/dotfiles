@@ -12,7 +12,18 @@ function dorflex() {
 }
 
 function vacations() {
-  python3.10 -c "from datetime import datetime ; print((datetime.strptime('2021-12-31', '%Y-%m-%d').date() - datetime.today().date()).days)"
+    _data=$(curl -s -X 'GET' 'http://localhost:8000/vacations' -H 'accept: application/json')
+    if [ $? -ne 0 ]; then
+        echo "Undefined²"
+    else
+        # _date=$(curl -s -X 'GET' 'http://localhost:8000/vacations' -H 'accept: application/json' | python3.10 -c "import sys, json; data = json.load(sys.stdin)['data']; print(data['from'] if len(data) else 'Undefined')")
+        _date=$(echo "${_data}" | python3.10 -c "import sys, json; data = json.load(sys.stdin)['data']; print(data['from'] if len(data) else 'Undefined')")
+        if [ ${_date} = "Undefined" ]; then
+            echo ${_date}
+        else
+            python3.10 -c "from datetime import datetime ; print((datetime.strptime('2021-12-31', '%Y-%m-%d').date() - datetime.today().date()).days)"
+        fi
+    fi
 }
 
 function solange() {
