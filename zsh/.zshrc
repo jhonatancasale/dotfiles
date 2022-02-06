@@ -69,6 +69,7 @@ export TIMER_THRESHOLD=3
 export GEM_HOME="${HOME}/gems"
 
 export PATH="/usr/local/bin:/usr/bin:.:${HOME}/utils/CondaPython/anaconda3/bin:${HOME}/gems/bin:/bin:/usr/local/sbin:${HOME}/utils/scripts:/usr/lib64/openmpi/bin:/usr/sbin:${HOME}/utils/phantonJS/phantomjs-2.1.1-linux-x86_64/bin:${HOME}/workspace/ringa/utils/bin:${HOME}/.local/bin:/usr/share/maven/bin:$HOME/utils/leiningen:${HOME}/utils/openshift/openshift-origin-server-v3.11.0-0cbc58b-linux-64bit:${HOME}/utils/exercism:${HOME}/.cargo/bin:${HOME}/tools/bin"
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/bin"
 
 source $ZSH/oh-my-zsh.sh
 
