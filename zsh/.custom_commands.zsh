@@ -95,3 +95,9 @@ function update () {
     echo "[Update OMZ]"
     omz update
 }
+
+function commit () {
+    gcmsg $1
+    push
+    cd - 2>/dev/null
+}
