@@ -2,6 +2,8 @@ alias rt="rake test"
 alias gr="grep -Rin"
 alias ggr="ggg ; grep -Rin"
 alias rrr="R --quiet -f"
+alias ls="exa --icons"
+alias cat="bat --style=auto"
 alias l1="ls -1"
 alias ll1="clear; ls -1"
 alias lll="clear; ls -l"
@@ -67,7 +69,6 @@ alias influxs="docker-compose --file ${HOME}/dorflex/docker-compose.yml stop inf
 
 alias igride="influxr; cd ${PROJECTS}/igride-samsara; ./run.sh ; cd -"
 alias igrides="influxr; cd ${PROJECTS}/igride-samsara; ./run.sh ; cd -; influxs"
-alias bat=batcat
 
 alias down-docker="jenkinsd;dorflexd"
 
