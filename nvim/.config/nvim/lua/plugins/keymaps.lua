@@ -80,6 +80,7 @@ keymap("n", "<leader>cb", ":!echo ''; cargo build<CR>", opts)
 keymap("n", "<leader>cr", ":!echo ''; cargo run<CR>", opts)
 
 -- Quickly close windows
+-- keymap("n", "<leader>x", ":x<CR>", opts)
 keymap("n", "<leader>x", ":x<CR>", opts)
 keymap("n", "<leader>X", ":q<CR>", opts)
 
