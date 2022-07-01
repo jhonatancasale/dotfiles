@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/utils/.oh-my-zsh
 
-ZSH_THEME="nanotech-jc"
+ZSH_THEME="nanotech"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
