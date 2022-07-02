@@ -108,7 +108,7 @@ alias stow="stow --verbose"
 
 alias purge="sudo apt-get -y purge"
 
-alias ggpush='git push origin "$(git branch --show-current)"'
-alias ggpull='git pull origin "$(git branch --show-current)"'
+alias ggpush='git push "${GIT_DEFAULT_UPSTREAM}" "$(git branch --show-current)"'
+alias ggpull='git pull "${GIT_DEFAULT_UPSTREAM}" "$(git branch --show-current)"'
 alias push="ggpush"
 alias pull="ggpull"
