@@ -109,8 +109,8 @@ function update () {
     # omz update
 }
 
-function commit () {
-    gcmsg $1
-    push
-    cd - 2>/dev/null
-}
+# function commit () {
+#     gcmsg $1
+#     push
+#     cd - 2>/dev/null
+# }
