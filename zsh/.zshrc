@@ -23,6 +23,7 @@ source ~/.zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/custom/plugins/you-should-use/you-should-use.plugin.zsh
 source ~/.zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/custom/plugins/zsh-z/zsh-z.plugin.zsh
+source `npm root -g`/zsh-history-enquirer/scripts/zsh-history-enquirer.plugin.zsh
 
 source ${HOME}/.env
 source ${HOME}/.env.local
