@@ -83,3 +83,5 @@ luac.out
 
 # Explicit ignore the Packer plugin folder
 nvim/.config/nvim/plugin
+
+*.wip
