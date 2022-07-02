@@ -109,6 +109,10 @@ function update () {
     # omz update
 }
 
+function zvm_config() {
+    export ZVM_VI_EDITOR="nvim"
+}
+
 # function commit () {
 #     gcmsg $1
 #     push

@@ -33,6 +33,9 @@ source ${HOME}/.env.local
 source ${HOME}/.custom_commands.zsh
 source ${HOME}/.aliases
 
+export ZVM_VI_EDITOR="nvim"
+source ~/.zsh/custom/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 # For some reason, this line need to be at the bottom
 bindkey '^w' autosuggest-accept
 bindkey '^ ' autosuggest-execute
