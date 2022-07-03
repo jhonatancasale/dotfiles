@@ -34,6 +34,7 @@ source ${HOME}/.custom_commands.zsh
 source ${HOME}/.aliases
 
 export ZVM_VI_EDITOR="nvim"
+export ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 source ~/.zsh/custom/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # For some reason, this line need to be at the bottom
