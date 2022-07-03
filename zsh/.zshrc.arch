@@ -2,12 +2,15 @@
 stty start undef
 stty stop undef
 
+source ~/.zsh/custom/plugins/zsh-ssh-agent/ssh-agent.zsh
+
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-# Path to your oh-my-zsh installation.
-export ZSH=${HOME}/utils/.oh-my-zsh
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
@@ -19,26 +22,20 @@ if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='nvim'
 fi
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="mm/dd/yyyy"
+# plugins=(
+#     git
+#     history
+#     history-substring-search
+#     zsh-autosuggestions
+#     zsh-z
+)
 
 plugins=(
   dirhistory
   cp
   autopep8
+  dnf
+  ubuntu
   colored-man-pages
   git-extras
   git-flow 
@@ -53,20 +50,33 @@ plugins=(
   history
   history-substring-search
   python
+  rake-fast
+  rake
+  rvm
   ssh-agent
-  # vi-mode
+  ruby
+  vi-mode
   vim-interaction
   zsh-navigation-tools
   tmux
   tmuxinator
   tmux-cssh
+  timer
   you-should-use
   zsh-autosuggestions
   catimg
   zsh-z
 )
-
+export ZSH=${HOME}/utils/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# source ~/.zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/custom/plugins/you-should-use/you-should-use.plugin.zsh
+# source ~/.zsh/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+# source ~/.zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.zsh/custom/plugins/zsh-z/zsh-z.plugin.zsh
+# source ~/.zsh/custom/plugins/git/git.plugin.zsh
+# source `npm root -g`/zsh-history-enquirer/scripts/zsh-history-enquirer.plugin.zsh
 
 source /opt/asdf-vm/asdf.sh
 
@@ -75,10 +85,12 @@ source ${HOME}/.env.local
 source ${HOME}/.custom_commands.zsh
 source ${HOME}/.aliases
 
-source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+export ZVM_VI_EDITOR="nvim"
 export ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-# source ~/.zsh/custom/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source ~/.zsh/custom/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+bindkey -v
+# bindkey '^R' history-incremental-search-backward
 
 # For some reason, this line need to be at the bottom
 bindkey '^w' autosuggest-accept
