@@ -15,7 +15,7 @@ null_ls.setup({
         formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 
         -- Lua
-        formatting.stylua,
+        -- formatting.stylua,
 
         -- Python
         -- formatting.black.with({ extra_args = { "--fast" } }),
@@ -23,7 +23,7 @@ null_ls.setup({
         diagnostics.mypy,
 
         -- Rust
-        formatting.rustfmt,
+        -- formatting.rustfmt,
     },
 
     -- auto format on save
