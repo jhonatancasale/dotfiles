@@ -76,8 +76,7 @@ keymap("n", "<leader>lpdb", ":terminal clear; echo ''; python3 %<CR>", opts)
 keymap("n", "<leader>ppt", ":!pytest<CR>", opts)
 
 -- Rust
-keymap("n", "<leader>cb", ":!echo ''; cargo build<CR>", opts)
-keymap("n", "<leader>cr", ":!echo ''; cargo run<CR>", opts)
+keymap("n", "<leader>rr", ":!echo ''; cargo run<CR>", opts)
 
 -- Quickly close windows
 -- keymap("n", "<leader>x", ":x<CR>", opts)
