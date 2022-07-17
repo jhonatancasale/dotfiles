@@ -95,7 +95,8 @@ function update () {
     # echo ""
 
     echo "[Update npm modules]"
-    sudo npm update -g
+    npm update --location=global
+    npm update --location=user
 
     # echo "Attempting to call npm audit fix"
     # cd /tmp
