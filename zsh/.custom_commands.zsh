@@ -59,23 +59,23 @@ function create_python_virtualenv() {
   pip install neovim black flake8 yapf pylint mypy
 }
 
-function rust() {
-    project_name=$1
-
-    cat > Cargo.toml << EOT
-[package]
-name = "${project_name}" # the name of the package
-version = "0.0.1"    # the current version, obeying semver
-
-[[bin]]
-name = "${project_name}"
-path = "src/${project_name}.rs"
-EOT
-
-    mkdir -p src
-    touch src/${project_name}.rs
-    tree
-}
+# function rust() {
+#     project_name=$1
+#
+#     cat > Cargo.toml << EOT
+# [package]
+# name = "${project_name}" # the name of the package
+# version = "0.0.1"    # the current version, obeying semver
+#
+# [[bin]]
+# name = "${project_name}"
+# path = "src/${project_name}.rs"
+# EOT
+#
+#     mkdir -p src
+#     touch src/${project_name}.rs
+#     tree
+# }
 
 function update () {
     _current_path=${PWD}
@@ -95,7 +95,7 @@ function update () {
     # echo ""
 
     echo "[Update npm modules]"
-    npm update --location=global
+    sudo npm update --location=global
     npm update --location=user
 
     # echo "Attempting to call npm audit fix"
