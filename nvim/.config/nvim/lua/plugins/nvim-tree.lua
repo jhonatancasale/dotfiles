@@ -45,20 +45,20 @@ vim.api.nvim_create_autocmd("BufEnter", {
 nvim_tree.setup({
     disable_netrw = true,
     hijack_netrw = true,
-    open_on_setup = false,
-    ignore_ft_on_setup = {
-        "startify",
-        "dashboard",
-        "alpha",
-    },
+    --[[ open_on_setup = false, ]]
+    --[[ ignore_ft_on_setup = { ]]
+    --[[     "startify", ]]
+    --[[     "dashboard", ]]
+    --[[     "alpha", ]]
+    --[[ }, ]]
     -- auto_close = true,
     open_on_tab = false,
     hijack_cursor = false,
     update_cwd = true,
-    update_to_buf_dir = {
-        enable = true,
-        auto_open = true,
-    },
+    --[[ update_to_buf_dir = { ]]
+    --[[     enable = true, ]]
+    --[[     auto_open = true, ]]
+    --[[ }, ]]
     diagnostics = {
         enable = true,
         icons = {
@@ -88,17 +88,17 @@ nvim_tree.setup({
     },
     view = {
         width = 30,
-        height = 30,
+        --[[ height = 30, ]]
         hide_root_folder = false,
         side = "left",
-        auto_resize = true,
+        --[[ auto_resize = true, ]]
         mappings = {
             custom_only = false,
-            list = {
-                { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-                { key = "h", cb = tree_cb("close_node") },
-                { key = "v", cb = tree_cb("vsplit") },
-            },
+            --[[ list = { ]]
+            --[[     { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") }, ]]
+            --[[     { key = "h", cb = tree_cb("close_node") }, ]]
+            --[[     { key = "v", cb = tree_cb("vsplit") }, ]]
+            --[[ }, ]]
         },
         number = false,
         relativenumber = false,

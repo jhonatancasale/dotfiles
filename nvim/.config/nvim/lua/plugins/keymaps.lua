@@ -78,6 +78,9 @@ keymap("n", "<leader>ppt", ":!pytest<CR>", opts)
 -- Rust
 keymap("n", "<leader>rr", ":!echo ''; cargo run<CR>", opts)
 
+-- Bash
+keymap("n", "<leader>lbb", ":!echo ''; bash %<CR>", opts)
+
 -- Quickly close windows
 -- keymap("n", "<leader>x", ":x<CR>", opts)
 keymap("n", "<leader>x", ":x<CR>", opts)
