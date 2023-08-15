@@ -107,6 +107,7 @@ return packer.startup(function(use)
     use({ "Vimjas/vim-python-pep8-indent", ft = { "python" } })
     -- Python-related text object
     use({ "jeetsukumaran/vim-pythonsense", ft = { "python" } })
+    use({ "github/copilot.vim" })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
