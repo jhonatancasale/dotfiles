@@ -76,7 +76,7 @@ keymap("n", "<leader>lpdb", ":terminal clear; echo ''; python3 %<CR>", opts)
 keymap("n", "<leader>ppt", ":!pytest<CR>", opts)
 
 -- Rust
-keymap("n", "<leader>rr", ":!echo ''; cargo run<CR>", opts)
+--[[ keymap("n", "<leader>rr", ":!echo ''; cargo run<CR>", opts) ]]
 
 -- Bash
 keymap("n", "<leader>lbb", ":!echo ''; bash %<CR>", opts)

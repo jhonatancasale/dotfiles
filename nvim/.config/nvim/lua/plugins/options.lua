@@ -50,7 +50,7 @@ local options = {
     autoread = true,
     wrap = false,                                     -- display lines as one long line
     -- textwidth = 79,                                -- either wrap = true and this, or wrap = false
-    pastetoggle = "<F2>",                             -- "F2 before pasting to preserve indentation
+    -- pastetoggle = "<F2>",                             -- "F2 before pasting to preserve indentation
     background = "dark",
     undodir = os.getenv ( "HOME" ) .. "/.vim/undodir",
     backspace = '2',                                  -- Backspace deletes like most programs in insert mode
