@@ -4,7 +4,8 @@
 -- local colorscheme = "default"
 -- local colorscheme = "kanagawa-lotus"
 -- local colorscheme = "tokyonight"
-local colorscheme = "gruvbox"
+-- local colorscheme = "gruvbox"
+local colorscheme = "monokai-nightasty"
 
 -- Function to safely set colorscheme
 local function set_colorscheme(name)
