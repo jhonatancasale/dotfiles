@@ -20,8 +20,8 @@ return {
 				keymap = {
 					-- accept = "<c-l>",
 					accept = false,
-					-- next = "<c-j>",
-					-- prev = "<c-k>",
+					next = "<c-j>",
+					prev = "<c-k>",
 					dismiss = "<c-h>",
 				},
 			},
@@ -48,7 +48,7 @@ return {
 		local opts = { noremap = true, silent = true }
 		vim.api.nvim_set_keymap("n", "<c-s>", ":lua require('copilot.suggestion').toggle_auto_trigger()<CR>", opts)
 
-		vim.keymap.set("i", "<tab>", function()
+		vim.keymap.set("i", "<c-w>", function()
 			if require("copilot.suggestion").is_visible() then
 				require("copilot.suggestion").accept()
 				return "<Ignore>"
